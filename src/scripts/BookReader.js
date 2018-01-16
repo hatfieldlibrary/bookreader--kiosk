@@ -170,7 +170,7 @@ function BookReader() {
     // Experimental Controls (eg b/w)
     this.enableExperimentalControls = false;
 
-    this.isKioskDisplay = true;
+    this.isKioskDisplay = false;
 
     return this;
 }

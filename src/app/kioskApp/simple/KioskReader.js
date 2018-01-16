@@ -76,6 +76,8 @@ br.getPageNum = function(index) {
     return index+1;
 };
 
+br.isKioskDisplay = true;
+
 // Total number of leafs
 br.numLeafs = 15;
 

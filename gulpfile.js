@@ -4,17 +4,17 @@ var cleanCss = require('gulp-clean-css');
 var uglify = require('gulp-uglify');
 var pump = require('pump');
 
-var appDevRoot = 'demoApp';
+var appDevRoot = 'kioskApp';
 
 function minifyCss() {
-    return gulp.src(['./app/styles/**/*'])
+    return gulp.src(['./src/app/styles/**/*'])
         .pipe(cleanCss())
         .pipe(gulp.dest('./dist/styles'))
 }
 
 function minifyJs(callback) {
     pump([
-            gulp.src('./app/scripts/**/*'),
+            gulp.src('./src/app/scripts/**/*'),
             uglify(),
             gulp.dest('./dist/scripts')
         ],
@@ -23,17 +23,17 @@ function minifyJs(callback) {
 }
 
 function copyModules() {
-    gulp.src('./app/modules/**/*')
+    gulp.src('./src/app/modules/**/*')
         .pipe(gulp.dest('./dist/scripts/vendor'))
 }
 
 function copyImages() {
-    gulp.src('./app/images/**/*')
+    gulp.src('./src/app/images/**/*')
         .pipe(gulp.dest('./dist/images'));
 }
 
 function copyRootFiles() {
-    return gulp.src('./app/' + appDevRoot + '/simple/**/*')
+    return gulp.src('./src/app/' + appDevRoot + '/simple/**/*')
         .pipe(gulp.dest('./dist'));
 }
 
@@ -69,9 +69,9 @@ gulp.task('copy', function () {
 gulp.task('default', function () {
 
     initialize();
-    gulp.watch('./app/scripts/**/*', ['jsmin']);
-    gulp.watch('./app/styles/**/*', ['cssmin']);
-    gulp.watch('./app/' + appDevRoot + '/simple/**/*', ['copy']);
+    gulp.watch('./src/app/scripts/**/*', ['jsmin']);
+    gulp.watch('./src/app/styles/**/*', ['cssmin']);
+    gulp.watch('./src/app/' + appDevRoot + '/simple/**/*', ['copy']);
 
 
 });
