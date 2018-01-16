@@ -1,0 +1,33 @@
+{
+  "private": true,
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.23.5",
+    "font-awesome": "^4.5.0",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^3.9.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-dest": "^0.2.3",
+    "gulp-uglify": "^3.0.0",
+    "jquery": "^2.2.0",
+    "jquery-ui": "^1.10",
+    "live-server": "^0.9.2",
+    "ls": "^3.7.0",
+    "onchange": "^2.0.0",
+    "parallelshell": "^2.0.0",
+    "pump": "^2.0.0",
+    "underscore": "^1.8.3"
+  },
+  "scripts": {
+    "browserify": "browserify app/scripts/index.js -o app/scripts/bundle.js",
+    "watch:js": "watchify app/dist/BooReader.js -o app/scripts/bundle.js",
+    "server": "live-server --open='app'",
+    "watch": "parallelshell 'npm run watch:sass' 'npm run watch:js' 'npm run server'"
+  },
+  "browserify-shim": {
+    "jQuery": "$",
+    "underscore": "_"
+  }
+}
