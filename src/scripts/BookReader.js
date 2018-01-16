@@ -360,7 +360,7 @@ BookReader.prototype.init = function() {
     $(document).trigger("BookReader:PostInit");
 
     this.init.initComplete = true;
-}
+};
 
 
 //______________________________________________________________________________
