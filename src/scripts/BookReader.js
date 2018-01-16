@@ -1682,16 +1682,33 @@ BookReader.prototype.prepareThumbnailView = function() {
     this.drawLeafsThumbnail( this.currentIndex() );
 };
 
+// When in kiosk mode, this function is used to add the left and right navigation arrows.
 BookReader.prototype.createKioskNavigationArrows = function(position) {
     if (position === 'left') {
-        $('#BRcontainer').append('<div style="color: #fff;position: absolute;left: 0;top: 0; bottom: 0;width: 120px;">' +
-            '<div style="position: relative;display: block; height: 100%;">' +
-            '<span style="position: absolute;top: 50%;left: 50%;height: 30%;width: 50%;margin: -15% 0 0 -25%;">left arrow</span></div>');
+        $('#BRcontainer').append('<div class="nav-arrow" style="left: 0;">' +
+            '<button class="BRkioskicon book_left" style="position: absolute;top: 50%;left: 50%;height: 30%;width: 50%;margin: -15% 0 0 -25%;">left arrow</button></div>');
     } else {
-        $('#BRcontainer').append('<div style="color: #fff;position: absolute;right: 0;top: 0; bottom: 0;width: 120px;">' +
-            '<div style="position: relative;display: block; height: 100%;">' +
-            '<span style="position: absolute;top: 50%;left: 50%;height: 30%;width: 50%;margin: -15% 0 0 -25%;">right arrow</span></div>');
+        $('#BRcontainer').append('<div class="BRkioskicon nav-arrow" style="right: 0;">' +
+            '<button class="BRkioskicon book_right" style="position: absolute;top: 50%;left: 50%;height: 30%;width: 50%;margin: -15% 0 0 -25%;">right arrow</button></div>');
     }
+};
+
+BookReader.prototype.bindKisokButtons = function() {
+
+    var self = this; // closure
+    jIcons = $('.BRkioskicon');
+
+    jIcons.filter('.book_left').click(function(e) {
+        self.ttsStop();
+        self.left();
+        return false;
+    });
+
+    jIcons.filter('.book_right').click(function(e) {
+        self.ttsStop();
+        self.right();
+        return false;
+    });
 };
 
 // prepareTwoPageView()
@@ -1741,13 +1758,17 @@ BookReader.prototype.prepareTwoPageView = function(centerPercentageX, centerPerc
 
     //console.dir(this.twoPage);
 
-    this.createKioskNavigationArrows('left');
+    if (this.isKioskDisplay) {
+        this.createKioskNavigationArrows('left');
+    }
 
     // Add the two page view
     // $$$ Can we get everything set up and then append?
     $('#BRcontainer').append('<div id="BRtwopageview"></div>');
 
-    this.createKioskNavigationArrows('right');
+    if (this.isKioskDisplay) {
+        this.createKioskNavigationArrows('right');
+    }
 
     // Attaches to first child, so must come after we add the page view
     $('#BRcontainer').dragscrollable({preventDefault:true});
@@ -1856,6 +1877,10 @@ BookReader.prototype.prepareTwoPageView = function(centerPercentageX, centerPerc
 
     this.removeSearchHilites();
     this.updateSearchHilites();
+
+    if(this.isKioskDisplay) {
+        this.bindKisokButtons();
+    }
 
 };
 
