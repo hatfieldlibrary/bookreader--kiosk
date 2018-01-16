@@ -1,1 +1,3 @@
-## bookreader flyweight
+
+Modified IArchives BookReader for touchscreen kiosk.
+
