@@ -1682,6 +1682,18 @@ BookReader.prototype.prepareThumbnailView = function() {
     this.drawLeafsThumbnail( this.currentIndex() );
 };
 
+BookReader.prototype.createKioskNavigationArrows = function(position) {
+    if (position === 'left') {
+        $('#BRcontainer').append('<div style="color: #fff;position: absolute;left: 0;top: 0; bottom: 0;width: 120px;">' +
+            '<div style="position: relative;display: block; height: 100%;">' +
+            '<span style="position: absolute;top: 50%;left: 50%;height: 30%;width: 50%;margin: -15% 0 0 -25%;">left arrow</span></div>');
+    } else {
+        $('#BRcontainer').append('<div style="color: #fff;position: absolute;right: 0;top: 0; bottom: 0;width: 120px;">' +
+            '<div style="position: relative;display: block; height: 100%;">' +
+            '<span style="position: absolute;top: 50%;left: 50%;height: 30%;width: 50%;margin: -15% 0 0 -25%;">right arrow</span></div>');
+    }
+};
+
 // prepareTwoPageView()
 //______________________________________________________________________________
 // Some decisions about two page view:
@@ -1729,9 +1741,13 @@ BookReader.prototype.prepareTwoPageView = function(centerPercentageX, centerPerc
 
     //console.dir(this.twoPage);
 
+    this.createKioskNavigationArrows('left');
+
     // Add the two page view
     // $$$ Can we get everything set up and then append?
     $('#BRcontainer').append('<div id="BRtwopageview"></div>');
+
+    this.createKioskNavigationArrows('right');
 
     // Attaches to first child, so must come after we add the page view
     $('#BRcontainer').dragscrollable({preventDefault:true});
