@@ -33,7 +33,7 @@ function copyImages() {
 }
 
 function copyRootFiles() {
-    return gulp.src('./src/app/' + appDevRoot + '/simple/**/*')
+    return gulp.src('./src/app/' + appDevRoot + '/**/*')
         .pipe(gulp.dest('./dist'));
 }
 
@@ -80,7 +80,7 @@ gulp.task('default', function () {
     startBrowserSync();
     gulp.watch('./src/scripts/**/*', ['jsmin']);
     gulp.watch('./src/styles/**/*', ['cssmin']);
-    gulp.watch('./src/app/' + appDevRoot + '/simple/**/*', ['copy']);
+    gulp.watch('./src/app/' + appDevRoot + '/**/*', ['copy']);
 
 
 });
