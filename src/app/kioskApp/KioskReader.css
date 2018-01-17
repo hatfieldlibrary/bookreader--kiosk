@@ -19,7 +19,7 @@ html, body
 #BookReader {
     position: relative;
     background-color: transparent;
-    border: 1px solid yellow;
+    /*border: 1px solid yellow;*/
     height: 95%;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -34,7 +34,7 @@ html, body
 }
 
 div#BRkioskindicator{
-    border: 1px solid green;
+    /*border: 1px solid green;*/
     background-color: transparent;
 }
 
@@ -46,7 +46,12 @@ div#BRkioskindicator{
     position: absolute;
     top: 0;
     bottom: 0;
-    width: 120px;
+    width: 210px;
+    background: transparent;
+}
+
+img.kiosk-icon {
+    height: 180px;
 }
 
 

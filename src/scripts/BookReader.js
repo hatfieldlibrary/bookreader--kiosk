@@ -1686,10 +1686,10 @@ BookReader.prototype.prepareThumbnailView = function() {
 BookReader.prototype.createKioskNavigationArrows = function(position) {
     if (position === 'left') {
         $('#BRcontainer').append('<div class="nav-arrow" style="left: 0;">' +
-            '<button class="BRkioskicon book_left" style="position: absolute;top: 50%;left: 50%;height: 30%;width: 50%;margin: -15% 0 0 -25%;">left arrow</button></div>');
+            '<div class="BRkioskicon book_left" style="position: absolute;top: 50%;left: 50%;height: 30%;width: 50%;margin: -15% 0 0 -25%;"><img class="kiosk-icon" src=\"'+this.imagesBaseURL+'ic_keyboard_arrow_left_white_48px.svg\" /></div></div>');
     } else {
         $('#BRcontainer').append('<div class="BRkioskicon nav-arrow" style="right: 0;">' +
-            '<button class="BRkioskicon book_right" style="position: absolute;top: 50%;left: 50%;height: 30%;width: 50%;margin: -15% 0 0 -25%;">right arrow</button></div>');
+            '<div class="BRkioskicon book_right" style="position: absolute;top: 50%;right: 50%;height: 30%;width: 50%;margin: -15% 0 0 -25%;"><img class="kiosk-icon" src=\"'+this.imagesBaseURL+'ic_keyboard_arrow_right_white_48px.svg\" /></div></div>');
     }
 };
 
