@@ -3610,9 +3610,42 @@ BookReader.prototype.jumpIndexForRightEdgePageX = function(pageX) {
 };
 
 BookReader.prototype.buildKioskLocationIndicator = function() {
-    $('#BookReader').append("<div id=\"BRkioskindicator\"></div>");
+    $('#BookReader').append(
+        "<div id=\"BRkioskindicator\">" +
+        "  <div id=\"BRnavpos\">" +
+        "    <div id=\"BRpager\"></div>" +
+        "     <div id=\"BRnavline\">" +
+        "       <div class=\"BRnavend\" id=\"BRnavleft\"></div>" +
+        "       <div class=\"BRnavend\" id=\"BRnavright\"></div>" +
+        "     </div>" +
+        "  </div>" +
+        "</div>");
+
+    var self = this;
+    $('#BRpager').slider({
+        animate: true,
+        min: 0,
+        max: this.numLeafs - 1,
+        value: this.currentIndex(),
+        range: "min"
+    })
+        .bind('slide', function(event, ui) {
+            self.updateNavPageNum(ui.value);
+            return true;
+        })
+        .bind('slidechange', function(event, ui) {
+            self.updateNavPageNum(ui.value);
+            // recursion prevention for jumpToIndex
+            if ( $(this).data('swallowchange') ) {
+                $(this).data('swallowchange', false);
+            } else {
+                self.jumpToIndex(ui.value);
+            }
+            return true;
+        });
 
 };
+
 
 // initNavbar
 //______________________________________________________________________________
