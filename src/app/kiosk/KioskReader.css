@@ -26,7 +26,7 @@ html, body
 
 }
 #BRcontainer {
-    bottom: 80px !important;
+    bottom: 130px !important;
 }
 /* Hide print and embed functionality */
 #BRtoolbar .embed, .print {
@@ -36,6 +36,7 @@ html, body
 div#BRkioskindicator{
     /*border: 1px solid green;*/
     background-color: transparent;
+    bottom: 65px;
 }
 
 .BRemptypage {
@@ -60,15 +61,15 @@ div#BRnavpos {
 }
 
 div#BRpager {
-    background-color: #91a594;
+    background-color: rgba(245, 226, 183, 0.68);
 }
 
 #BRpager .ui-slider-range {
-    background: rgba(63, 204, 29, 0.62);
+    background: rgba(171, 146, 56, 0.82);
  }
 
 #BRpager .ui-slider-handle {
-    background-color: #2d8a2b;
+    background-color: rgb(183, 101, 0);
 }
 
-9ca59a
+

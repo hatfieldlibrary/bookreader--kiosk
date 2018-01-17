@@ -590,7 +590,7 @@ div#BRpage .BRicon.thumb {
 div#BRkioskindicator {
     box-sizing: border-box;
     position: absolute;
-    bottom: 0;
+    bottom: 65px;
     left: 0;
     width: 100%;
     height: 50px;

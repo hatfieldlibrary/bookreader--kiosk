@@ -24,8 +24,10 @@ br.getPageURI = function(index, reduce, rotate) {
     // or pass the information to an image server
     var leafStr = '000';
     var imgStr = (index+1).toString();
+    console.log(imgStr);
     var re = new RegExp("0{"+imgStr.length+"}$");
-    var url = 'http://www.archive.org/download/BookReader/img/page'+leafStr.replace(re, imgStr) + '.jpg';
+    var url = 'http://libmedia.willamette.edu/MUSEUM/Holy_Beauty/book_pages/'+leafStr.replace(re, imgStr) + '.jpg';
+    console.log(url)
     return url;
 };
 
@@ -79,7 +81,7 @@ br.getPageNum = function(index) {
 br.isKioskDisplay = true;
 
 // Total number of leafs
-br.numLeafs = 15;
+br.numLeafs = 94;
 
 // Book title and the URL used for the book title link
 br.bookTitle= 'Internet Archive BookReader Presentation';
