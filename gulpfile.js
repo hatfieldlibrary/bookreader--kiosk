@@ -3,18 +3,20 @@ var browserSync = require('browser-sync').create();
 var cleanCss = require('gulp-clean-css');
 var uglify = require('gulp-uglify');
 var pump = require('pump');
+var minimist = require('minimist');
+var del = require('del');
 
-var appDevRoot = 'kioskApp';
+var knownOptions = {
+    string: 'mode',
+    default: {mode: 'simple'}
+};
 
-function minifyCss() {
-    return gulp.src(['./src/styles/**/*'])
-        .pipe(cleanCss())
-        .pipe(gulp.dest('./dist/styles'))
-}
+var options = minimist(process.argv.slice(2), knownOptions);
+var appDevRoot = options.mode;
 
 function minifyJs(callback) {
     pump([
-            gulp.src('./src/scripts/**/*'),
+            gulp.src('./src/scripts/BookReader.js'),
             uglify(),
             gulp.dest('./dist/scripts')
         ],
@@ -23,12 +25,23 @@ function minifyJs(callback) {
 }
 
 function copyModules() {
-    gulp.src('./src/modules/**/*')
+    return gulp.src('./src/modules/**/*')
         .pipe(gulp.dest('./dist/scripts/vendor'))
 }
 
+function copyVendorJs() {
+    return gulp.src('./src/scripts/vendor/**/*')
+        .pipe(gulp.dest('./dist/scripts/vendor'))
+}
+
+function minifyCss() {
+    return gulp.src(['./src/styles/**/*'])
+        .pipe(cleanCss())
+        .pipe(gulp.dest('./dist/styles'))
+}
+
 function copyImages() {
-    gulp.src('./src/images/**/*')
+    return gulp.src('./src/images/**/*')
         .pipe(gulp.dest('./dist/images'));
 }
 
@@ -39,48 +52,54 @@ function copyRootFiles() {
 
 function startBrowserSync() {
     // wait one second to initialize browser-sync.
-    setTimeout( function() {
+    setTimeout(function () {
         browserSync.init({
             server: './dist'
         });
-    }, 1000);
+    }, 2000);
 }
 
-function build() {
+function build(callback) {
     minifyCss();
-    minifyJs(function() {});
+    copyVendorJs();
     copyModules();
-    copyImages();
     copyRootFiles();
-
+    copyImages();
+    minifyJs(function () {});
+    callback();
 }
 
-gulp.task('cssmin', function () {
-    cleanCss()
+gulp.task('watch:cssmin', function () {
+    minifyCss()
         .pipe(browserSync.stream());
 });
 
-gulp.task('jsmin', function () {
-    minifyJs(function() { browserSync.reload(); });
-
+gulp.task('watch:jsmin', function () {
+    minifyJs(function () {
+        browserSync.reload();
+    });
 });
 
-gulp.task('copy', function () {
+gulp.task('watch:copy', function () {
     copyRootFiles()
         .pipe(browserSync.stream());
 });
 
-gulp.task('build', function() {
-    build();
+gulp.task('clean', function () {
+    return Promise.all([
+        del('./dist')
+    ]);
 });
 
-gulp.task('default', function () {
+gulp.task('build', ['clean'], function (done) {
+    return build(done);
+});
 
-    build();
+gulp.task('default', ['build'], function () {
     startBrowserSync();
-    gulp.watch('./src/scripts/**/*', ['jsmin']);
-    gulp.watch('./src/styles/**/*', ['cssmin']);
-    gulp.watch('./src/app/' + appDevRoot + '/**/*', ['copy']);
+    gulp.watch('./src/scripts/**/*', ['watch:jsmin']);
+    gulp.watch('./src/styles/**/*', ['watch:cssmin']);
+    gulp.watch('./src/app/' + appDevRoot + '/**/*', ['watch:copy']);
 
 
 });
