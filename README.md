@@ -6,7 +6,7 @@ That project includes demo implementations that are included here.
 
 This project also extends the original Internet Archives project with a custom kiosk mode that can be used with touch screen kiosk displays.
 
-**Internet Archive BookReader** code is repackaged here for use with the  [gulp](https://github.com/gulpjs/gulp) build system.
+**Internet Archive BookReader** code is repackaged for use with the  [gulp](https://github.com/gulpjs/gulp) build system.
 For syncrhonized browser testing, use the following:
 
 ```javascript
