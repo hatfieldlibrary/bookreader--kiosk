@@ -24,10 +24,8 @@ br.getPageURI = function(index, reduce, rotate) {
     // or pass the information to an image server
     var leafStr = '000';
     var imgStr = (index+1).toString();
-    console.log(imgStr);
     var re = new RegExp("0{"+imgStr.length+"}$");
     var url = 'http://libmedia.willamette.edu/MUSEUM/Holy_Beauty/book_pages/'+leafStr.replace(re, imgStr) + '.jpg';
-    console.log(url)
     return url;
 };
 
@@ -78,6 +76,7 @@ br.getPageNum = function(index) {
     return index+1;
 };
 
+// Use the kiosk display (default is false)
 br.isKioskDisplay = true;
 
 // Total number of leafs
