@@ -13,11 +13,13 @@ in kiosk mode, set `br.isKioskDisplay = true` in `src/app/kiosk/KioskReader.js`.
 
 Kiosks are typically configured for a specific display.  If needed, use `KioskReader.css` to adjust the layout.
 
-**Internet Archive BookReader** code is repackaged for use with the  [gulp](https://github.com/gulpjs/gulp) build system.
+
 
 ## How to Use this Project
 
 For syncrhonized browser testing, use one of the following:
+
+The **Internet Archive BookReader** code is repackaged for use with the  [gulp](https://github.com/gulpjs/gulp) build system.
 
 ```javascript
 gulp --mode kiosk
