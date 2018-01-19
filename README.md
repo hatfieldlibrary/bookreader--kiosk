@@ -17,9 +17,9 @@ Kiosks are typically configured for a specific display.  If needed, use `KioskRe
 
 ## How to Use this Project
 
-For syncrhonized browser testing, use one of the following:
-
 The **Internet Archive BookReader** code is repackaged for use with the  [gulp](https://github.com/gulpjs/gulp) build system.
+
+For syncrhonized browser testing, use one of the following:
 
 ```javascript
 gulp --mode kiosk
