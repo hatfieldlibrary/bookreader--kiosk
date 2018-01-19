@@ -53,7 +53,7 @@ If you want to use this code base for different projects, you may want to fork t
 
 ## Sample Kiosk Screen Shots
 
-[Kiosk-1]()
+[Kiosk-1](https://github.com/hatfieldlibrary/bookreader--kiosk/blob/master/screenshots/kiosk-1.png)
 
-[Kiosk-2]()
+[Kiosk-2](https://github.com/hatfieldlibrary/bookreader--kiosk/blob/master/screenshots/kiosk-2.png)
 
