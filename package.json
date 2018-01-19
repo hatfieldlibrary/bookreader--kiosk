@@ -15,12 +15,11 @@
     "jquery": "^2.2.0",
     "jquery-ui": "^1.10",
     "live-server": "^0.9.2",
-    "ls": "^3.7.0",
     "minimist": "^1.2.0",
     "onchange": "^2.0.0",
     "parallelshell": "^2.0.0",
     "pump": "^2.0.0",
-    "underscore": "^1.8.3",
+    "underscore": "^1.8.3"
   },
   "scripts": {
     "browserify": "browserify app/scripts/index.js -o app/scripts/bundle.js",
