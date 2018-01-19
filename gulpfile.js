@@ -65,8 +65,14 @@ function build(callback) {
     copyModules();
     copyRootFiles();
     copyImages();
-    minifyJs(function () {console.log('BookReader.js minified.')});
-    callback();
+    minifyJs(function (err) {
+        if (err) {
+            console.log(err);
+            return;
+        }
+        callback();
+    });
+
 }
 
 gulp.task('watch:cssmin', function () {
@@ -75,7 +81,11 @@ gulp.task('watch:cssmin', function () {
 });
 
 gulp.task('watch:jsmin', function () {
-    minifyJs(function () {
+    minifyJs(function (err) {
+        if (err) {
+            console.log(err);
+            return;
+        }
         browserSync.reload();
     });
 });
@@ -96,6 +106,7 @@ gulp.task('build', ['clean'], function (done) {
 });
 
 gulp.task('default', ['build'], function () {
+
     startBrowserSync();
     gulp.watch('./src/scripts/**/*', ['watch:jsmin']);
     gulp.watch('./src/styles/**/*', ['watch:cssmin']);
