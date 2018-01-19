@@ -8,7 +8,7 @@ br = new BookReader();
 
 // Return the width of a given page.  Here we assume all images are 800 pixels wide
 br.getPageWidth = function(index) {
-    return 800;
+    return 1519;
 };
 
 // Return the height of a given page.  Here we assume all images are 1200 pixels high
@@ -25,7 +25,7 @@ br.getPageURI = function(index, reduce, rotate) {
     var leafStr = '000';
     var imgStr = (index+1).toString();
     var re = new RegExp("0{"+imgStr.length+"}$");
-    var url = 'http://libmedia.willamette.edu/MUSEUM/Holy_Beauty/book_pages/'+leafStr.replace(re, imgStr) + '.jpg';
+    var url = 'http://libmedia.willamette.edu/MUSEUM/Holy_Beauty/kiosk-2/book_pages/'+leafStr.replace(re, imgStr) + '.jpg';
     return url;
 };
 
@@ -80,7 +80,9 @@ br.getPageNum = function(index) {
 br.isKioskDisplay = true;
 
 // Total number of leafs
-br.numLeafs = 94;
+br.numLeafs = 10;
+
+br.mode = br.constMode1up;
 
 // Book title and the URL used for the book title link
 br.bookTitle= 'Internet Archive BookReader Presentation';
@@ -101,7 +103,7 @@ br.enableMobileNav = true;
 br.mobileNavTitle = 'BookReader demo';
 
 // Override the path used to find UI images
-br.imagesBaseURL = '/images/';
+br.imagesBaseURL = './images/';
 
 br.getEmbedCode = function(frameWidth, frameHeight, viewParams) {
     return "Embed code not supported in bookreader demo.";

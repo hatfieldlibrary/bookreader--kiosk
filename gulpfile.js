@@ -16,7 +16,7 @@ var appDevRoot = options.mode;
 
 function minifyJs(callback) {
     pump([
-            gulp.src('./src/scripts/BookReader.js'),
+            gulp.src('./src/scripts/*'),
             uglify(),
             gulp.dest('./dist/scripts')
         ],
@@ -65,7 +65,7 @@ function build(callback) {
     copyModules();
     copyRootFiles();
     copyImages();
-    minifyJs(function () {});
+    minifyJs(function () {console.log('BookReader.js minified.')});
     callback();
 }
 

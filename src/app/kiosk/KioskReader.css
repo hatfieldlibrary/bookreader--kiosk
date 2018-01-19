@@ -26,6 +26,7 @@ html, body
 
 }
 #BRcontainer {
+    top: 12px;
     bottom: 30px !important;
 }
 /* Hide print and embed functionality */

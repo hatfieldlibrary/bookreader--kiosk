@@ -170,6 +170,7 @@ function BookReader() {
     // Experimental Controls (eg b/w)
     this.enableExperimentalControls = false;
 
+    // Use kiosk display mode
     this.isKioskDisplay = false;
 
     return this;
@@ -1638,6 +1639,9 @@ BookReader.prototype.prepareOnePageView = function() {
         overflowY: 'scroll',
         overflowX: 'auto'
     });
+    if (this.isKioskDisplay) {
+        this.create1UPKioskNavigationArrows('left');
+    }
 
     $("#BRcontainer").append("<div id='BRpageview'></div>");
 
@@ -1649,8 +1653,16 @@ BookReader.prototype.prepareOnePageView = function() {
     //     nav in FF 3.6 (https://bugs.edge.launchpad.net/bookreader/+bug/544666)
     // BookReader.util.disableSelect($('#BRpageview'));
 
+    if (this.isKioskDisplay) {
+        this.create1UPKioskNavigationArrows('right');
+    }
+
     this.resizePageView();
     this.jumpToIndex(startLeaf);
+
+    if(this.isKioskDisplay) {
+        this.bindKisokButtons();
+    }
 };
 
 //prepareThumbnailView()
@@ -1693,9 +1705,20 @@ BookReader.prototype.createKioskNavigationArrows = function(position) {
     }
 };
 
+BookReader.prototype.create1UPKioskNavigationArrows = function(position) {
+    if (position === 'left') {
+        $('#BookReader').append('<div class="nav-arrow" style="left: 0;z-index: 500;">' +
+            '<div class="BRkioskicon book_up" style="position: absolute;top: 50%;left: 50%;height: 30%;width: 50%;margin: -15% 0 0 -25%;"><img class="kiosk-icon" src=\"'+this.imagesBaseURL+'ic_keyboard_arrow_left_white_48px.svg\" /></div></div>');
+    } else {
+        $('#BookReader').append('<div class="BRkioskicon nav-arrow" style="right: 0;z-index: 500">' +
+            '<div class="BRkioskicon book_down" style="position: absolute;top: 50%;right: 50%;height: 30%;width: 50%;margin: -15% 0 0 -25%;"><img class="kiosk-icon" src=\"'+this.imagesBaseURL+'ic_keyboard_arrow_right_white_48px.svg\" /></div></div>');
+    }
+};
+
 BookReader.prototype.bindKisokButtons = function() {
 
     var self = this; // closure
+
     jIcons = $('.BRkioskicon');
 
     jIcons.filter('.book_left').click(function(e) {
@@ -1707,6 +1730,24 @@ BookReader.prototype.bindKisokButtons = function() {
     jIcons.filter('.book_right').click(function(e) {
         self.ttsStop();
         self.right();
+        return false;
+    });
+
+    jIcons.filter('.book_up').bind('click', function(e) {
+        if ($.inArray(self.mode, [self.constMode1up, self.constModeThumb]) >= 0) {
+            self.scrollUp();
+        } else {
+            self.prev();
+        }
+        return false;
+    });
+
+    jIcons.filter('.book_down').bind('click', function(e) {
+        if ($.inArray(self.mode, [self.constMode1up, self.constModeThumb]) >= 0) {
+            self.scrollDown();
+        } else {
+            self.next();
+        }
         return false;
     });
 };
