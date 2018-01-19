@@ -25,7 +25,7 @@ br.getPageURI = function(index, reduce, rotate) {
     var leafStr = '000';
     var imgStr = (index+1).toString();
     var re = new RegExp("0{"+imgStr.length+"}$");
-    var url = 'http://libmedia.willamette.edu/MUSEUM/Holy_Beauty/kiosk-1/book_pages/'+leafStr.replace(re, imgStr) + '.jpg';
+    var url = 'http://www.archive.org/download/BookReader/img/page'+leafStr.replace(re, imgStr) + '.jpg';
     return url;
 };
 
@@ -80,12 +80,12 @@ br.getPageNum = function(index) {
 br.isKioskDisplay = true;
 
 // Total number of leafs
-br.numLeafs = 94;
+br.numLeafs = 15;
 
 br.mode = br.constMode1up;
 
 // Book title and the URL used for the book title link
-br.bookTitle= 'Holy Beauty';
+br.bookTitle= 'Book Reader';
 br.bookUrl = 'http://localhost:3000/#page/1/mode/1up';
 br.bookUrlText = '';
 br.bookUrlTitle = '';
@@ -93,14 +93,14 @@ br.bookUrlTitle = '';
 br.thumbnail = '//www.archive.org/download/BookReader/img/page014.jpg';
 // Metadata is optional, but it is used in the info dialog
 br.metadata = [
-  {label: 'Title', value: 'Holy Beauty'},
-  {label: 'Author', value: 'Hallie Ford Museum of Art'},
+  {label: 'Title', value: 'BookReader'},
+  {label: 'Author', value: 'Internet Archives'},
   {label: 'Demo Info', value: ''},
 
 ];
 // This toggles the mobile drawer (not shown in 'embed' mode)
 br.enableMobileNav = true;
-br.mobileNavTitle = 'Holy Beauty';
+br.mobileNavTitle = 'Book Reader';
 
 // Override the path used to find UI images
 br.imagesBaseURL = './images/';
