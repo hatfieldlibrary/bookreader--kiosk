@@ -85,22 +85,22 @@ br.numLeafs = 10;
 br.mode = br.constMode1up;
 
 // Book title and the URL used for the book title link
-br.bookTitle= 'Internet Archive BookReader Presentation';
-br.bookUrl = 'http://www.archive.org/details/BookReader';
-br.bookUrlText = 'Back to details on Archive.org';
-br.bookUrlTitle = 'Back to details on Archive.org';
+br.bookTitle= 'Holy Beauty';
+br.bookUrl = 'http://localhost:3000/#page/1/mode/1up';
+br.bookUrlText = '';
+br.bookUrlTitle = '';
 // thumbnail is optional, but it is used in the info dialog
 br.thumbnail = '//www.archive.org/download/BookReader/img/page014.jpg';
 // Metadata is optional, but it is used in the info dialog
 br.metadata = [
-  {label: 'Title', value: 'Open Library BookReader Presentation'},
-  {label: 'Author', value: 'Internet Archive'},
-  {label: 'Demo Info', value: 'This demo shows how one could use BookReader with their own content.'},
+  {label: 'Title', value: 'Holy Beauty'},
+  {label: 'Author', value: 'Hallie Ford Museum of Art'},
+  {label: 'Demo Info', value: ''},
 
 ];
 // This toggles the mobile drawer (not shown in 'embed' mode)
 br.enableMobileNav = true;
-br.mobileNavTitle = 'BookReader demo';
+br.mobileNavTitle = 'Holy Beauty';
 
 // Override the path used to find UI images
 br.imagesBaseURL = './images/';

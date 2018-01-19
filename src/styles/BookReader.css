@@ -604,6 +604,20 @@ div#BRkioskindicator {
     _top: expression(documentElement.scrollTop + documentElement.clientHeight-this.offsetHeight);
 }
 
+
+div.BRkioskpager {
+    color: #fff;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 210px;
+    background: transparent;
+}
+
+img.BRkioskiconSvg {
+    height: 180px;
+}
+
 div#BRnav {
     box-sizing: border-box;
     position: absolute;

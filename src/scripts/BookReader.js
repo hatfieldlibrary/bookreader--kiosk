@@ -1697,21 +1697,21 @@ BookReader.prototype.prepareThumbnailView = function() {
 // When in kiosk mode, this function is used to add the left and right navigation arrows.
 BookReader.prototype.createKioskNavigationArrows = function(position) {
     if (position === 'left') {
-        $('#BRcontainer').append('<div class="nav-arrow" style="left: 0;">' +
-            '<div class="BRkioskicon book_left" style="position: absolute;top: 50%;left: 50%;height: 30%;width: 50%;margin: -15% 0 0 -25%;"><img class="kiosk-icon" src=\"'+this.imagesBaseURL+'ic_keyboard_arrow_left_white_48px.svg\" /></div></div>');
+        $('#BRcontainer').append('<div class="BRkioskpager" style="left: 0;">' +
+            '<div class="BRkioskicon book_left" style="position: absolute;top: 50%;left: 50%;height: 30%;width: 50%;margin: -15% 0 0 -25%;"><img class="BRkioskiconSvg" src=\"'+this.imagesBaseURL+'ic_keyboard_arrow_left_white_48px.svg\" /></div></div>');
     } else {
-        $('#BRcontainer').append('<div class="BRkioskicon nav-arrow" style="right: 0;">' +
-            '<div class="BRkioskicon book_right" style="position: absolute;top: 50%;right: 50%;height: 30%;width: 50%;margin: -15% 0 0 -25%;"><img class="kiosk-icon" src=\"'+this.imagesBaseURL+'ic_keyboard_arrow_right_white_48px.svg\" /></div></div>');
+        $('#BRcontainer').append('<div class="BRkioskpager" style="right: 0;">' +
+            '<div class="BRkioskicon book_right" style="position: absolute;top: 50%;right: 50%;height: 30%;width: 50%;margin: -15% 0 0 -25%;"><img class="BRkioskiconSvg" src=\"'+this.imagesBaseURL+'ic_keyboard_arrow_right_white_48px.svg\" /></div></div>');
     }
 };
 
 BookReader.prototype.create1UPKioskNavigationArrows = function(position) {
     if (position === 'left') {
-        $('#BookReader').append('<div class="nav-arrow" style="left: 0;z-index: 500;">' +
-            '<div class="BRkioskicon book_up" style="position: absolute;top: 50%;left: 50%;height: 30%;width: 50%;margin: -15% 0 0 -25%;"><img class="kiosk-icon" src=\"'+this.imagesBaseURL+'ic_keyboard_arrow_left_white_48px.svg\" /></div></div>');
+        $('#BookReader').append('<div class="BRkioskpager" style="left: 0;z-index: 500;">' +
+            '<div class="BRkioskicon book_up" style="position: absolute;top: 50%;left: 50%;height: 30%;width: 50%;margin: -15% 0 0 -25%;"><img class="BRkioskiconSvg" src=\"'+this.imagesBaseURL+'ic_keyboard_arrow_left_white_48px.svg\" /></div></div>');
     } else {
-        $('#BookReader').append('<div class="BRkioskicon nav-arrow" style="right: 0;z-index: 500">' +
-            '<div class="BRkioskicon book_down" style="position: absolute;top: 50%;right: 50%;height: 30%;width: 50%;margin: -15% 0 0 -25%;"><img class="kiosk-icon" src=\"'+this.imagesBaseURL+'ic_keyboard_arrow_right_white_48px.svg\" /></div></div>');
+        $('#BookReader').append('<div class="BRkioskpager" style="right: 0;z-index: 500">' +
+            '<div class="BRkioskicon book_down" style="position: absolute;top: 50%;right: 50%;height: 30%;width: 50%;margin: -15% 0 0 -25%;"><img class="BRkioskiconSvg" src=\"'+this.imagesBaseURL+'ic_keyboard_arrow_right_white_48px.svg\" /></div></div>');
     }
 };
 
@@ -2371,6 +2371,8 @@ BookReader.prototype.scrollDown = function() {
         return false;
     }
 };
+
+
 
 // scrollUp()
 //______________________________________________________________________________
