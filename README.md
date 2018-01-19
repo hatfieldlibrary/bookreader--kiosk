@@ -4,7 +4,7 @@
 This project is based on the [ **Internet Archive BookReader** ](https://github.com/internetarchive/bookreader).
 That Internet Archives project includes demo implementations that are included here.  
 
-In addition, this project extends the Internet Archives project by adding a kiosk mode that can be used with touch screen kiosks.
+In addition, this project extends the Internet Archives Book Reader by adding a kiosk mode that can be used with touch screen kiosks.
 
 ## Kiosk Mode
 
