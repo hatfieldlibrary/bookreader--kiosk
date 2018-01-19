@@ -46,7 +46,7 @@ gulp build --mode iiif
 Gulp is configured to accept a `--mode` parameter that identifies the subdirectory for the version of the project to be used.
 
 Each time you work in this project, a `dist` directory is created.  If you already have a `dist` directory, the contents
-will be overwritten.  The `dist` directory contains code that can be deployed to a web server for access or
+will be overwritten.  The `dist` directory contains code that can be deployed to a web server as is or
 incorporated into another project or publication.
 
 If you want to use this code base for different projects, you may want to fork the repository.
