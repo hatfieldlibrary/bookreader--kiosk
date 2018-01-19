@@ -31,23 +31,13 @@ html, body
 
 }
 #BRcontainer {
-    top: 12px;
     bottom: 30px !important;
-    background: #000;
-
-    /*!* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#303023+86,131313+100&0+27,1+100 *!*/
-    /*background: -moz-linear-gradient(top, rgba(48,48,35,0) 27%, rgba(48,48,35,0.81) 86%, rgba(19,19,19,1) 100%); !* FF3.6-15 *!*/
-    /*background: -webkit-linear-gradient(top, rgba(48,48,35,0) 27%,rgba(48,48,35,0.81) 86%,rgba(19,19,19,1) 100%); !* Chrome10-25,Safari5.1-6 *!*/
-    /*background: linear-gradient(to bottom, rgba(48,48,35,0) 27%,rgba(48,48,35,0.81) 86%,rgba(19,19,19,1) 100%); !* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ *!*/
-    /*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00303023', endColorstr='#131313',GradientType=0 ); !* IE6-9 *!*/
-
-
-
 }
 
 #BRnavline {
     display: none;
 }
+
 /* Hide print and embed functionality */
 #BRtoolbar .embed, .print {
     display: none;
@@ -56,6 +46,7 @@ html, body
 .BRemptypage {
     background-color: transparent;
 }
+
 /* positions kiosk navigation arrows */
 div.BRkioskpager {
     width: 210px;
@@ -73,26 +64,21 @@ div#BRkioskindicator{
     height: 10px;
 }
 
+
 div#BRnavpos {
     margin-right: auto;
     margin-left: auto;
     width: 1000px;
-    top: 10px;
 }
 
 div#BRpager {
-    background-color: rgba(245, 226, 183, 0.53);
-    /*background-color: rgba(245, 226, 183, 0.68);*/
+    background-color: rgba(245, 226, 183, 0.68);
 }
 
 #BRpager .ui-slider-range {
-    background: rgba(171, 146, 56, 0.64);
-    /*background: rgba(171, 146, 56, 0.82);*/
+    background: rgba(171, 146, 56, 0.82);
 }
 
 #BRpager .ui-slider-handle {
-    background-color: rgba(49, 87, 56, 0.86);
-    /*background-color: rgb(183, 101, 0);*/
+    background-color: rgb(183, 101, 0);
 }
-
-
