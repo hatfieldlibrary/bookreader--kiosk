@@ -51,3 +51,9 @@ incorporated into another project or publication.
 
 If you want to use this code base for different projects, you may want to fork the repository.
 
+## Sample Kiosk Screen Shots
+
+[Kiosk-1]()
+
+[Kiosk-2]()
+
